@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gamer Tag Bio Page</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .profile img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+
+        .links a {
+            display: inline-block;
+            padding: 12px 25px;
+            margin: 10px;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+
+        .twitch {
+            background: purple;
+        }
+
+        .discord {
+            background: blue;
+        }
+
+        .steam {
+            background: #333;
+            border: 1px solid white;
+        }
+
+        form {
+            background: white;
+            color: black;
+            padding: 20px;
+            max-width: 500px;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 8px;
+            border-radius: 5px;
+            border: 1px solid gray;
+        }
+
+        button {
+            padding: 12px 25px;
+            background: #00c853;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .card {
+            background: white;
+            color: black;
+            max-width: 500px;
+            margin: 15px auto;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .spotify {
+            border-left: 8px solid green;
+        }
+
+        .youtube {
+            border-left: 8px solid red;
+        }
+
+        .apple {
+            border-left: 8px solid black;
+        }
+
+        .card a {
+            background: #333;
+            color: white;
+            padding: 8px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 600px) {
+            .links a {
+                display: block;
+            }
+
+            form,
+            .card {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Gamer Profile -->
+    <div class="profile">
+        <img src="profile.webp">
+
+        <h1>ShadowX</h1>
+
+        <p>🎮 Gamer | Streamer | Music Lover</p>
+    </div>
+
+
+    <!-- Gaming Links -->
+    <div class="links">
+
+        <a class="twitch" href="https://www.twitch.tv/" target="_blank">
+            🎮 Twitch
+        </a>
+
+        <a class="discord" href="https://discord.com/" target="_blank">
+            💬 Discord
+        </a>
+
+        <a class="steam" href="https://store.steampowered.com/" target="_blank">
+            🎮 Steam
+        </a>
+
+    </div>
+
+
+    <!-- Music Form -->
+    <form id="musicLinksForm">
+
+        <h2>Add Music Links 🎵</h2>
+
+        <input type="url" id="spotify"
+               placeholder="🟢 Spotify URL">
+
+        <input type="url" id="youtube"
+               placeholder="🔴 YouTube Music URL">
+
+        <input type="url" id="apple"
+               placeholder="⚫ Apple Music URL">
+
+        <br>
+
+        <button type="submit">
+            Add Links
+        </button>
+
+    </form>
+
+
+    <!-- Preview -->
+    <h2>Your Music Links</h2>
+
+    <div id="cards"></div>
+
+
+    <script>
+
+        document.getElementById("musicLinksForm").onsubmit =
+        function(event) {
+
+            event.preventDefault();
+
+            let cards = document.getElementById("cards");
+
+            cards.innerHTML = "";
+
+            let spotify = document.getElementById("spotify").value;
+            let youtube = document.getElementById("youtube").value;
+            let apple = document.getElementById("apple").value;
+
+
+            if (spotify != "") {
+                cards.innerHTML += `
+                    <div class="card spotify">
+                        <h3>🟢 Spotify</h3>
+                        <p>${spotify}</p>
+                        <a href="${spotify}" target="_blank">
+                            Visit
+                        </a>
+                    </div>
+                `;
+            }
+
+
+            if (youtube != "") {
+                cards.innerHTML += `
+                    <div class="card youtube">
+                        <h3>🔴 YouTube Music</h3>
+                        <p>${youtube}</p>
+                        <a href="${youtube}" target="_blank">
+                            Visit
+                        </a>
+                    </div>
+                `;
+            }
+
+
+            if (apple != "") {
+                cards.innerHTML += `
+                    <div class="card apple">
+                        <h3>⚫ Apple Music</h3>
+                        <p>${apple}</p>
+                        <a href="${apple}" target="_blank">
+                            Visit
+                        </a>
+                    </div>
+                `;
+            }
+
+        };
+
+    </script>
+
+</body>
+</html>
+```
